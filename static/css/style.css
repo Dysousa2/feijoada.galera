@@ -923,13 +923,21 @@ img {
 .attractions-slider {
     overflow: hidden;
     margin-top: 40px;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y;
+}
+
+.attractions-slider.dragging {
+    cursor: grabbing;
 }
 
 .attractions-track {
     display: flex;
     gap: 28px;
     width: max-content;
-    animation: attractions-scroll 40s linear infinite;
+    will-change: transform;
 }
 
 .attraction-card {
@@ -973,14 +981,6 @@ img {
     color: var(--text-soft);
 }
 
-@keyframes attractions-scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
 @media (max-width: 900px) {
     .attraction-card {
         width: 280px;
